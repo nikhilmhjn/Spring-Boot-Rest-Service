@@ -17,5 +17,14 @@ node {
          bat(/"${M2_HOME}\bin\mvn"  -Dmaven.test.failure.ignore clean package/)
       }
    }
+   
+    stage('Unit Test') {
+      // Run the maven build
+      if (isUnix()) {
+            //Unit test cases
+      } else {
+         bat(/"${M2_HOME}\bin\mvn"  clean test/)
+      }
+   }
 
 }
