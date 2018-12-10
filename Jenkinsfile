@@ -14,11 +14,8 @@ node {
          //sh "'${MAVEN_HOME}/bin/mvn' -Dmaven.test.failure.ignore clean package"
       } else {
         // bat(/"${MAVEN_HOME}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
-         bat(/"G:\Software\apache-maven-3.5.4\bin\mvn install"/)
+         bat(/"${M2_HOME}\bin\mvn"  -Dmaven.test.failure.ignore clean package/)
       }
    }
-   stage('Results') {
-      junit '**/target/surefire-reports/TEST-*.xml'
-      archive 'target/*.jar'
-   }
+
 }
